@@ -10,7 +10,7 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'WEBFLIX by Vivek Chauhan';
+  title = 'WEBFLIX by Rohit Kumar';
   loading = false;
   color: ThemePalette = 'warn';
   mode: ProgressSpinnerMode = 'indeterminate';
