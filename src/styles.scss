@@ -33,3 +33,10 @@
         }
     }
 }
+
+.toast-container {
+    pointer-events: none;
+    position: fixed;
+    z-index: 999999;
+    font-size: medium;
+}

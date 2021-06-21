@@ -15,7 +15,10 @@ import { PipeModule } from './pipe/pipe.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SkeletonModule } from './shared/skeleton/skeleton.module';
-
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { ToastrModule } from 'ngx-toastr';
+import { ConnectionServiceModule, ConnectionServiceOptions, ConnectionServiceOptionsToken } from 'ngx-connection-service';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,21 @@ import { SkeletonModule } from './shared/skeleton/skeleton.module';
     SidebarModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    SkeletonModule
+    SkeletonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ToastrModule.forRoot(),
+    ConnectionServiceModule
+  ],
+
+  providers: [
+    {
+      provide: ConnectionServiceOptionsToken,
+      useValue: <ConnectionServiceOptions>{
+        enableHeartbeat: true,
+        heartbeatUrl: 'https://www.chromestatus.com/feature/5745543795965952',
+        requestMethod: 'get',
+        heartbeatInterval: 8000
+      }}
   ],
 
   bootstrap: [AppComponent]
