@@ -41,6 +41,18 @@ export class AppComponent implements OnInit{
   ngOnInit() {
 
 
+    // this.connectionService.updateOptions({
+    //   heartbeatExecutor: options => new Observable<any>(subscriber => {
+    //     if (Math.random() > .5) {
+    //       subscriber.next();
+    //       // subscriber.complete();
+    //     } else {
+          
+    //     }
+    //   })
+    // });
+
+
     // todo: showing offline toastr multiple times fix that
 
     this.connectionService.monitor().subscribe(currentState => {
