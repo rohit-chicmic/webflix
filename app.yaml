@@ -1,9 +1,0 @@
-runtime: python27
-api_version: 1
-threadsafe: true
-handlers:
-- url: /
- static_files: moviesExpo/index.html
- upload: moviesExpo/index.html
-- url: /
-static_dir: moviesExpo
